@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Abhinav AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: auto;
+      background: #0b1020;
+      color: white;
+      padding: 20px;
+    }
+
+    #chat {
+      height: 400px;
+      overflow-y: auto;
+      border: 1px solid #444;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+    }
+
+    input {
+      width: 75%;
+      padding: 10px;
+    }
+
+    button {
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🤖 Abhinav AI</h1>
+  <p>Ask Anything. Learn Everything.</p>
+
+  <div id="chat">
+    <p><b>Abhinav AI:</b> Hello! My server is being connected.</p>
+  </div>
+
+  <input id="message" placeholder="Ask anything...">
+  <button onclick="sendMessage()">Send</button>
+
+  <script>
+    async function sendMessage() {
+      const input = document.getElementById("message");
+      const text = input.value.trim();
+
+      if (!text) return;
+
+      const chat = document.getElementById("chat");
+
+      chat.innerHTML += `<p><b>You:</b> ${text}</p>`;
+
+      chat.innerHTML += `<p><b>Abhinav AI:</b> Backend setup coming next!</p>`;
+
+      input.value = "";
+      chat.scrollTop = chat.scrollHeight;
+    }
+  </script>
+</body>
+</html>
