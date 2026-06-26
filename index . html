@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 <head>
   <title>Abhinav AI</title>
@@ -13,23 +14,26 @@
       padding: 20px;
     }
 
-    #chat {
-      height: 400px;
-      overflow-y: auto;
-      border: 1px solid #444;
-      padding: 10px;
-      margin-bottom: 10px;
-      border-radius: 10px;
-    }
+```
+#chat {
+  height: 400px;
+  overflow-y: auto;
+  border: 1px solid #444;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
 
-    input {
-      width: 75%;
-      padding: 10px;
-    }
+input {
+  width: 75%;
+  padding: 10px;
+}
 
-    button {
-      padding: 10px;
-    }
+button {
+  padding: 10px;
+}
+```
+
   </style>
 </head>
 <body>
@@ -37,7 +41,7 @@
   <p>Ask Anything. Learn Everything.</p>
 
   <div id="chat">
-    <p><b>Abhinav AI:</b> Hello! My server is being connected.</p>
+    <p><b>Abhinav AI:</b> Hello! I am online.</p>
   </div>
 
   <input id="message" placeholder="Ask anything...">
@@ -54,11 +58,32 @@
 
       chat.innerHTML += `<p><b>You:</b> ${text}</p>`;
 
-      chat.innerHTML += `<p><b>Abhinav AI:</b> Backend setup coming next!</p>`;
-
       input.value = "";
+
+      try {
+        const response = await fetch(
+          "https://billowing-glitter-a593.verma-ujjwal2014.workers.dev",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              message: text
+            })
+          }
+        );
+
+        const data = await response.json();
+
+        chat.innerHTML += `<p><b>Abhinav AI:</b> ${data.reply}</p>`;
+      } catch (error) {
+        chat.innerHTML += `<p><b>Abhinav AI:</b> Error connecting to server.</p>`;
+      }
+
       chat.scrollTop = chat.scrollHeight;
     }
   </script>
+
 </body>
 </html>
