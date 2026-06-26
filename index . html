@@ -22,6 +22,7 @@
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 10px;
+  background: #111;
 }
 
 input {
@@ -57,7 +58,6 @@ button {
       const chat = document.getElementById("chat");
 
       chat.innerHTML += `<p><b>You:</b> ${text}</p>`;
-
       input.value = "";
 
       try {
@@ -77,7 +77,7 @@ button {
         const data = await response.json();
 
         chat.innerHTML += `<p><b>Abhinav AI:</b> ${data.reply}</p>`;
-      } catch (error) {
+      } catch (e) {
         chat.innerHTML += `<p><b>Abhinav AI:</b> Error connecting to server.</p>`;
       }
 
