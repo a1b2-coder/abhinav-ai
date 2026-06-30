@@ -223,39 +223,46 @@
     }
 function startVoice() {
 
-  if (!('webkitSpeechRecognition' in window)) {
+  const SpeechRecognition =
+    window.SpeechRecognition ||
+    window.webkitSpeechRecognition;
 
-    alert("Voice input is not supported in this browser.");
+  if (!SpeechRecognition) {
 
+    alert("Sorry! Voice input is not supported in this browser.");
     return;
 
   }
 
-  const recognition = new webkitSpeechRecognition();
+  const recognition = new SpeechRecognition();
 
   recognition.lang = "en-IN";
+  recognition.interimResults = false;
+  recognition.maxAlternatives = 1;
 
-  recognition.onresult = function(event) {
+  recognition.onstart = function () {
+    console.log("Listening...");
+  };
+
+  recognition.onresult = function (event) {
+
+    const transcript =
+      event.results[0][0].transcript;
 
     document.getElementById("message").value =
-      event.results[0][0].transcript;
+      transcript;
+
+  };
+
+  recognition.onerror = function (event) {
+
+    alert("Microphone error: " + event.error);
 
   };
 
   recognition.start();
 
 }
-    document
-.getElementById("message")
-.addEventListener("keypress", function(e){
-
-  if(e.key === "Enter"){
-
-    sendMessage();
-
-  }
-
-});
     if ("serviceWorker" in navigator) {
 
       
