@@ -148,7 +148,19 @@
   </div>
 
   <script>
+window.onload = function () {
 
+  const savedChat =
+    localStorage.getItem("abhinavChat");
+
+  if (savedChat) {
+
+    document.getElementById("chat").innerHTML =
+      savedChat;
+
+  }
+
+};
     async function sendMessage() {
 
       const input = document.getElementById("message");
