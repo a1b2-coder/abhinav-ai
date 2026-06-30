@@ -214,7 +214,14 @@ localStorage.setItem(
 
         chat.innerHTML +=
           `<p><b>Abhinav AI:</b> ${data.reply}</p>`;
+const speech =
+  new SpeechSynthesisUtterance(data.reply);
 
+speech.lang = "en-IN";
+speech.rate = 1;
+speech.pitch = 1;
+
+window.speechSynthesis.speak(speech);
       }
 
       catch (error) {
