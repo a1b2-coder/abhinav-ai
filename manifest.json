@@ -1,0 +1,16 @@
+{
+"name": "Abhinav AI",
+"short_name": "AbhinavAI",
+"description": "Ask Anything. Learn Everything.",
+"start_url": "/abhinav-ai/",
+"display": "standalone",
+"background_color": "#0b1020",
+"theme_color": "#0b1020",
+"icons": [
+{
+"src": "https://cdn-icons-png.flaticon.com/512/4712/4712109.png",
+"sizes": "512x512",
+"type": "image/png"
+}
+]
+}
