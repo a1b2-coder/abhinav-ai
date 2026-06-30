@@ -221,7 +221,41 @@
       );
 
     }
+function startVoice() {
 
+  if (!('webkitSpeechRecognition' in window)) {
+
+    alert("Voice input is not supported in this browser.");
+
+    return;
+
+  }
+
+  const recognition = new webkitSpeechRecognition();
+
+  recognition.lang = "en-IN";
+
+  recognition.onresult = function(event) {
+
+    document.getElementById("message").value =
+      event.results[0][0].transcript;
+
+  };
+
+  recognition.start();
+
+}
+    document
+.getElementById("message")
+.addEventListener("keypress", function(e){
+
+  if(e.key === "Enter"){
+
+    sendMessage();
+
+  }
+
+});
     if ("serviceWorker" in navigator) {
 
       
