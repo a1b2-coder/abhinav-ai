@@ -185,7 +185,10 @@ window.onload = function () {
           `<p><b>Abhinav AI:</b> The owner of Abhinav AI is Abhinav Raj.</p>`;
 
         chat.scrollTop = chat.scrollHeight;
-
+localStorage.setItem(
+  "abhinavChat",
+  chat.innerHTML
+);
         return;
       }
 
