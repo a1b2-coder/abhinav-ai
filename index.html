@@ -212,12 +212,17 @@ const settings = {
 
         chat.innerHTML +=
           `<p><b>Abhinav AI:</b> ${data.reply}</p>`;
-const speech =
-  new SpeechSynthesisUtterance(data.reply);
+const speech = new SpeechSynthesisUtterance(data.reply);
 
-speech.lang = "en-IN";
-speech.rate = 1;
-speech.pitch = 1;
+if (settings.voiceMode === "royal") {
+  speech.lang = "en-GB";
+  speech.rate = 0.85;
+  speech.pitch = 0.75;
+} else {
+  speech.lang = "en-IN";
+  speech.rate = 1;
+  speech.pitch = 1;
+}
 
 window.speechSynthesis.speak(speech);
       }
