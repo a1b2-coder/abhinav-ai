@@ -148,7 +148,9 @@
 
   <script>
 window.onload = function () {
-
+const settings = {
+  voiceMode: localStorage.getItem("voiceMode") || "royal"
+};
   const savedChat =
     localStorage.getItem("abhinavChat");
 
