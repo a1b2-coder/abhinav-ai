@@ -286,6 +286,10 @@ function startVoice() {
   recognition.start();
 
 }
+    function setVoiceMode(mode) {
+  settings.voiceMode = mode;
+  localStorage.setItem("voiceMode", mode);
+}
     if ("serviceWorker" in navigator) {
 
       
