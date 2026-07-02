@@ -247,8 +247,11 @@ const settings = {
         const data =
           await response.json();
 
-        chat.innerHTML +=
-          `<p><b>Abhinav AI:</b> ${data.reply}</p>`;
+       chat.innerHTML += `
+  <div class="message ai-message">
+    🤖 ${data.reply}
+  </div>
+`;
 const speech = new SpeechSynthesisUtterance(data.reply);
 
 if (settings.voiceMode === "royal") {
