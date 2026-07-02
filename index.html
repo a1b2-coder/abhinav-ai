@@ -206,8 +206,11 @@ const settings = {
 
       const chat = document.getElementById("chat");
 
-      chat.innerHTML +=
-        `<p><b>You:</b> ${text}</p>`;
+    chat.innerHTML += `
+  <div class="message user-message">
+    ${text}
+  </div>
+`;
 
       input.value = "";
 
