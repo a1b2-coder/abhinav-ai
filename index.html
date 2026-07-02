@@ -269,8 +269,11 @@ window.speechSynthesis.speak(speech);
 
       catch (error) {
 
-        chat.innerHTML +=
-          `<p><b>Abhinav AI:</b> Error connecting to server.</p>`;
+      chat.innerHTML += `
+  <div class="message ai-message">
+    ⚠️ Error connecting to server.
+  </div>
+`;
 
       }
 
