@@ -136,16 +136,26 @@
 </div>
   </div>
 
-  <div class="image-box">
+<div class="image-box">
 
-    <h3>🖼 Image Generation</h3>
+  <h3>🖼 Image Generation</h3>
 
-    <button onclick="generateImage()">
-      Generate Image
-    </button>
+  <input
+    id="imagePrompt"
+    placeholder="Describe an image..."
+  >
 
-  </div>
+  <br><br>
 
+  <button onclick="generateImage()">
+    Generate Image
+  </button>
+
+  <br><br>
+
+  <div id="generatedImage"></div>
+
+</div>
   <script>
 window.onload = function () {
 const settings = {
