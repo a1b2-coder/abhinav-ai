@@ -252,7 +252,7 @@ localStorage.setItem(
   "abhinavChat",
   chat.innerHTML
 );
-   async function generateImage() {
+ async function generateImage() {
 
   const prompt =
     document.getElementById("imagePrompt").value.trim();
@@ -264,8 +264,28 @@ localStorage.setItem(
 
   }
 
-  document.getElementById("generatedImage").innerHTML =
+  const imageBox =
+    document.getElementById("generatedImage");
+
+  imageBox.innerHTML =
     "<p>🧠 Generating image...</p>";
+
+  setTimeout(() => {
+
+    imageBox.innerHTML = `
+      <img
+        src="https://picsum.photos/500/300"
+        style="
+          width:100%;
+          max-width:500px;
+          border-radius:20px;
+          box-shadow:0 0 20px #00aaff;
+        "
+      >
+      <p><i>Prompt: ${prompt}</i></p>
+    `;
+
+  }, 2000);
 
 }
 function startVoice() {
