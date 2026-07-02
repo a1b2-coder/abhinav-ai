@@ -269,7 +269,11 @@ const thinkingAnimation = setInterval(() => {
 
         const data =
           await response.json();
+clearInterval(thinkingAnimation);
 
+document
+  .getElementById(thinkingId)
+  ?.remove();
        chat.innerHTML += `
   <div class="message ai-message">
     🤖 ${data.reply}
