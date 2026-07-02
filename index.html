@@ -252,13 +252,22 @@ localStorage.setItem(
   "abhinavChat",
   chat.innerHTML
 );
-    function generateImage() {
+   async function generateImage() {
 
-      alert(
-        "Image generation backend coming soon!"
-      );
+  const prompt =
+    document.getElementById("imagePrompt").value.trim();
 
-    }
+  if (!prompt) {
+
+    alert("Please enter an image prompt.");
+    return;
+
+  }
+
+  document.getElementById("generatedImage").innerHTML =
+    "<p>🧠 Generating image...</p>";
+
+}
 function startVoice() {
 
   const SpeechRecognition =
