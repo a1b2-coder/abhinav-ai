@@ -213,7 +213,28 @@ const settings = {
     ${text}
   </div>
 `;
+const thinkingId = "thinking-" + Date.now();
 
+chat.innerHTML += `
+  <div id="${thinkingId}" class="message ai-message">
+    🧠 Thinking.
+  </div>
+`;
+
+let dots = 1;
+
+const thinkingAnimation = setInterval(() => {
+
+  const box = document.getElementById(thinkingId);
+
+  if (!box) return;
+
+  dots = (dots % 3) + 1;
+
+  box.innerHTML =
+    "🧠 Thinking" + ".".repeat(dots);
+
+}, 500);
       input.value = "";
 
       // Fixed owner response
