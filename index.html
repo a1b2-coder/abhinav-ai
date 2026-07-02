@@ -295,7 +295,11 @@ window.speechSynthesis.speak(speech);
       }
 
       catch (error) {
+clearInterval(thinkingAnimation);
 
+document
+  .getElementById(thinkingId)
+  ?.remove();
       chat.innerHTML += `
   <div class="message ai-message">
     ⚠️ Error connecting to server.
